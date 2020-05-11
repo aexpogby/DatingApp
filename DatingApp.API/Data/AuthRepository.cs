@@ -29,10 +29,11 @@ namespace DatingApp.API.Data
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < computedHash[i])
+                for (int i = 0; i < computedHash[i]; i++){
                     
                     if (computedHash[i] != passwordHash[i])
                         return false;
+                }
             }
             return true;
         }
@@ -64,7 +65,7 @@ namespace DatingApp.API.Data
         {
             if (await _context.Users.AnyAsync(x => x.Username == username))
                 return true;
-            
+
             return false;
         }
     }
